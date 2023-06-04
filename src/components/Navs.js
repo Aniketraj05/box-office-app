@@ -12,7 +12,7 @@ const LINK = [
 
 const Navs = () => {
   return (
-    <ol>
+    <ul>
       {LINK.map((item, index) => {
         return (
           <li key={index}>
@@ -20,7 +20,7 @@ const Navs = () => {
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };
 
