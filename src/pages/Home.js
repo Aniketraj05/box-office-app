@@ -1,17 +1,32 @@
 import React, { useState } from "react";
+import { searchForShow } from "../api/tvMaze";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
-
+  const [apiData, setApiData] = useState(null);
+  const [apiErrorState, setApiErrorState] = useState(null);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch(
-      `https://api.tvmaze.com/search/shows?q=${searchValue}`
-    );
+    try {
+      setApiErrorState(null);
+      const result = await searchForShow(searchValue);
+      setApiData(result);
+    } catch (error) {
+      setApiErrorState(error);
+    }
+  };
+  const renderApiDate = () => {
+    if (apiErrorState) {
+      return <div>Error occured!{apiErrorState.message}</div>;
+    }
 
-    const body = await response.json();
-    console.log(body);
+    if (apiData)
+      return apiData.map((item) => {
+        return <div key={item.show.id}>{item.show.name}</div>;
+      });
+
+    return null;
   };
   return (
     <div>
@@ -24,6 +39,7 @@ const Home = () => {
         />
         <button type="submit">Search</button>
       </form>
+      {renderApiDate()}
     </div>
   );
 };
