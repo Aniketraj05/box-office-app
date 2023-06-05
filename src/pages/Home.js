@@ -1,30 +1,23 @@
 import React, { useState } from "react";
 import { searchForShow, searchForPeople } from "../api/tvMaze";
+import SearchForm from "../components/SearchForm";
 
 const Home = () => {
-  const [searchValue, setSearchValue] = useState("");
   const [apiData, setApiData] = useState(null);
   const [apiErrorState, setApiErrorState] = useState(null);
-  const [searchTypeState, setSearchTypeState] = useState("shows");
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+
+  const handleFormSubmit = async (obj) => {
+    const { searchValue, searchTypeState } = obj;
 
     try {
-      if (searchTypeState === "shows") {
-        setApiErrorState(null);
-        const result = await searchForShow(searchValue);
-        setApiData(result);
-      } else {
-        setApiErrorState(null);
-        const result = await searchForPeople(searchValue);
-        setApiData(result);
-      }
+      const result =
+        searchTypeState === "shows"
+          ? await searchForShow(searchValue)
+          : await searchForPeople(searchValue);
+      setApiData(result);
     } catch (error) {
       setApiErrorState(error);
     }
-  };
-  const handleRadioChange = (ev) => {
-    setSearchTypeState(ev.target.value);
   };
 
   const renderApiDate = () => {
@@ -46,36 +39,7 @@ const Home = () => {
   return (
     <div>
       <p>Home page</p>
-      <form onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-
-        <label>
-          <input
-            type="radio"
-            value="shows"
-            name="search-option"
-            checked={searchTypeState === "shows"}
-            onChange={handleRadioChange}
-          />
-          shows
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="actors"
-            name="search-option"
-            checked={searchTypeState === "actors"}
-            onChange={handleRadioChange}
-          />
-          actors
-        </label>
-
-        <button type="submit">Search</button>
-      </form>
+      <SearchForm handleFormSubmit={handleFormSubmit} />
       {renderApiDate()}
     </div>
   );
