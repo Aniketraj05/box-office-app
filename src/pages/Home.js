@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { searchForShow, searchForPeople } from "../api/tvMaze";
 import SearchForm from "../components/SearchForm";
+import ShowGrid from "../components/ShowGrid";
+import ActorGrid from "../components/ActorGrid";
 
 const Home = () => {
   const [apiData, setApiData] = useState(null);
@@ -25,14 +27,14 @@ const Home = () => {
       return <div>Error occured!{apiErrorState.message}</div>;
     }
 
+    if (apiData?.length === 0) return <div>No results</div>;
+
     if (apiData)
-      return apiData[0].show
-        ? apiData.map((data) => {
-            return <div key={data.show.id}>{data.show.name}</div>;
-          })
-        : apiData.map((data) => {
-            return <div key={data.person.id}>{data.person.name}</div>;
-          });
+      return apiData[0].show ? (
+        <ShowGrid showData={apiData} />
+      ) : (
+        <ActorGrid actorData={apiData} />
+      );
 
     return null;
   };
