@@ -14,8 +14,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
-          <Route path="*" element={<NoMatch />} />
           <Route path="/show/:showId" element={<ShowPage />} />
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>
     </div>
