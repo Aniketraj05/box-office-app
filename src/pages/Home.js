@@ -22,7 +22,7 @@ const Home = () => {
     }
   };
 
-  const renderApiDate = () => {
+  const renderApiData = () => {
     if (apiErrorState) {
       return <div>Error occured!{apiErrorState.message}</div>;
     }
@@ -42,7 +42,7 @@ const Home = () => {
     <div>
       <p>Home page</p>
       <SearchForm handleFormSubmit={handleFormSubmit} />
-      {renderApiDate()}
+      {renderApiData()}
     </div>
   );
 };

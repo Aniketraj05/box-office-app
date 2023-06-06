@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import MainLayout from "./components/MainLayout";
+import ShowPage from "./pages/ShowPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="*" element={<NoMatch />} />
+          <Route path="/show/:showId" element={<ShowPage />} />
         </Routes>
       </BrowserRouter>
     </div>
