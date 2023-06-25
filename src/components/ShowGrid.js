@@ -2,7 +2,6 @@ import React from "react";
 import ShowCard from "./ShowCard";
 
 const ShowGrid = ({ showData }) => {
-  console.log(showData);
   const renderShows = () => {
     return showData.map((item) => (
       <div key={item.show.id}>
