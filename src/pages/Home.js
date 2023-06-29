@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { searchForShow, searchForPeople } from "../api/tvMaze";
 import SearchForm from "../components/SearchForm";
-import ShowGrid from "../components/ShowGrid";
-import ActorGrid from "../components/ActorGrid";
+import ShowGrid from "../components/shows/ShowGrid";
+import ActorGrid from "../components/actors/ActorGrid";
 import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {

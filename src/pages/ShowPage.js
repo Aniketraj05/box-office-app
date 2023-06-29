@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 // import { useShowInfo } from "../custom/useShowInfo";
 import { searchShowIdData } from "../api/tvMaze";
-import ShowIdData from "../components/ShowIdData";
-import ShowIdDetial from "../components/ShowIdDetial";
+import ShowIdData from "../components/shows/ShowIdData";
+import ShowIdDetial from "../components/shows/ShowIdDetial";
 
 const ShowPage = () => {
   const { showId } = useParams();
