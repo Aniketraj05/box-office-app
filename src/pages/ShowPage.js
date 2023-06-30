@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { searchShowIdData } from "../api/tvMaze";
 import ShowIdData from "../components/shows/ShowIdData";
 import ShowIdDetial from "../components/shows/ShowIdDetial";
+import Seasons from "../components/shows/Seasons";
+import Cast from "../components/shows/Cast";
 
 const ShowPage = () => {
   const { showId } = useParams();
@@ -16,7 +18,7 @@ const ShowPage = () => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(showIdData);
+  // console.log(showIdData);
 
   if (showIdDataError) {
     return <div>Error occured: {showIdDataError.message}</div>;
@@ -41,6 +43,14 @@ const ShowPage = () => {
             premiered={showIdData.premiered}
             network={showIdData.network}
           />
+        </div>
+        <div>
+          <h2>Seasons</h2>
+          <Seasons seasons={showIdData._embedded.seasons} />
+        </div>
+        <div>
+          <h2>Cast</h2>
+          <Cast cast={showIdData._embedded.cast} />
         </div>
       </div>
     );
