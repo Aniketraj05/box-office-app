@@ -15,8 +15,6 @@ const ShowGrid = (props) => {
     }
   };
 
-  console.log(starredState);
-  console.log(localStorage);
   const renderShows = () => {
     return showData.map((item) => (
       <div key={item.show.id}>

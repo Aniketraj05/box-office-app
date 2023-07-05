@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useSearchString } from "../custom/usePersistedSearch";
 
 const SearchForm = (props) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useSearchString();
   const [searchTypeState, setSearchTypeState] = useState("shows");
 
   const { handleFormSubmit } = props;
