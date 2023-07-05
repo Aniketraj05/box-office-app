@@ -3,7 +3,8 @@ import ShowCard from "./ShowCard";
 import { star, unStar } from "./starred/actionTypes";
 import { useStarredShowReducer } from "./starred/useStarredShowReducer";
 
-const ShowGrid = ({ showData }) => {
+const ShowGrid = (props) => {
+  const { showData } = props;
   const [starredState, dispatchStarAction] = useStarredShowReducer();
 
   const onStarClick = (showId) => {
