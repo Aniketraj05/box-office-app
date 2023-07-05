@@ -5,8 +5,8 @@ const LINK = [
     to: "/",
   },
   {
-    text: "Contact",
-    to: "/contact",
+    text: "Starred Page",
+    to: "/starredpage",
   },
 ];
 

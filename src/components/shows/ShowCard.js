@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ShowCard = (props) => {
-  const { name, imgUrl, id, summary, onStarClick } = props;
+  const { name, imgUrl, id, summary, onStarClick, isStarred } = props;
   const summarStripped = summary
     ? summary.replace(/<.+?>/g, "").split(" ").slice(0, 10).join(" ")
     : "No information available";
@@ -16,7 +16,7 @@ const ShowCard = (props) => {
       <div>
         <Link to={`/show/${id}`}>Read More</Link>
         <button type="button" onClick={() => onStarClick(id)}>
-          Star Mark
+          {isStarred ? "Unstar Me" : "Star Me"}
         </button>
       </div>
     </div>

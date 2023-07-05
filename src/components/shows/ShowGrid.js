@@ -1,16 +1,10 @@
 import React from "react";
 import ShowCard from "./ShowCard";
-import { starredReducer } from "./starred/starredReducer";
 import { star, unStar } from "./starred/actionTypes";
-import { usePersistedReducer } from "../../custom/usePersistedReducer";
-export const initialState = [];
+import { useStarredShowReducer } from "./starred/useStarredShowReducer";
 
 const ShowGrid = ({ showData }) => {
-  const [starredState, dispatchStarAction] = usePersistedReducer(
-    starredReducer,
-    initialState,
-    "starredShows"
-  );
+  const [starredState, dispatchStarAction] = useStarredShowReducer();
 
   const onStarClick = (showId) => {
     if (starredState.includes(showId)) {
@@ -31,6 +25,7 @@ const ShowGrid = ({ showData }) => {
           imgUrl={item.show.image ? item.show.image.medium : "/not-found.png"}
           summary={item.show.summary}
           onStarClick={onStarClick}
+          isStarred={starredState.includes(item.show.id)}
         />
       </div>
     ));

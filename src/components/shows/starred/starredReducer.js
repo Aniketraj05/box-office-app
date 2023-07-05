@@ -1,6 +1,5 @@
 import { star, unStar } from "./actionTypes";
-import { initialState } from "../ShowGrid";
-export const starredReducer = (state = initialState, action) => {
+export const starredReducer = (state, action) => {
   switch (action.type) {
     case star:
       return [...state, action.showId];
