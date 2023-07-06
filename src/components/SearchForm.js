@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSearchString } from "../custom/usePersistedSearch";
+import CutomRadio from "./shows/CutomRadio";
 
 const SearchForm = (props) => {
   const [searchValue, setSearchValue] = useSearchString();
@@ -26,26 +27,22 @@ const SearchForm = (props) => {
           onChange={(e) => setSearchValue(e.target.value)}
         />
 
-        <label>
-          <input
-            type="radio"
-            value="shows"
-            name="search-option"
-            checked={searchTypeState === "shows"}
-            onChange={handleRadioChange}
-          />
-          shows
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="actors"
-            name="search-option"
-            checked={searchTypeState === "actors"}
-            onChange={handleRadioChange}
-          />
-          actors
-        </label>
+        <CutomRadio
+          label="shows"
+          type="radio"
+          value="shows"
+          name="search-option"
+          checked={searchTypeState === "shows"}
+          onChange={handleRadioChange}
+        />
+        <CutomRadio
+          label="Actors"
+          type="radio"
+          value="shows"
+          name="search-option"
+          checked={searchTypeState === "shows"}
+          onChange={handleRadioChange}
+        />
 
         <button type="submit">Search</button>
       </form>
