@@ -20,9 +20,12 @@ const ShowCard = (props) => {
 
       <ActionSection>
         <Link to={`/show/${id}`}>Read More</Link>
-        <StarBtn type="button" onClick={() => onStarClick(id)}>
+        <StarBtn
+          type="button"
+          onClick={() => onStarClick(id)}
+          className={isStarred ? "animate" : ""}
+        >
           <StarIcon active={isStarred} />
-          {/* {isStarred ? "Unstar Me" : "Star Me"} */}
         </StarBtn>
       </ActionSection>
     </SearchCard>
