@@ -2,6 +2,7 @@ import React from "react";
 import ShowCard from "./ShowCard";
 import { star, unStar } from "./starred/actionTypes";
 import { useStarredShowReducer } from "./starred/useStarredShowReducer";
+import { FlexGrid } from "../common/FlexGrid";
 
 const ShowGrid = (props) => {
   const { showData } = props;
@@ -29,7 +30,7 @@ const ShowGrid = (props) => {
       </div>
     ));
   };
-  return <div>{renderShows()}</div>;
+  return <FlexGrid>{renderShows()}</FlexGrid>;
 };
 
 export default ShowGrid;

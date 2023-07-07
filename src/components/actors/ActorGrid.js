@@ -1,5 +1,6 @@
 import React from "react";
 import ActorCard from "./ActorCard";
+import { FlexGrid } from "../common/FlexGrid";
 
 const ActorGrid = ({ actorData }) => {
   console.log(actorData);
@@ -21,7 +22,7 @@ const ActorGrid = ({ actorData }) => {
       );
     });
   };
-  return <>{renderActors()}</>;
+  return <FlexGrid>{renderActors()}</FlexGrid>;
 };
 
 export default ActorGrid;
