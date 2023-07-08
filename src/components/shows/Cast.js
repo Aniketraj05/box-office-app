@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import notFoundImg from "../common/not-found.png";
 
 const Cast = (props) => {
   const { cast } = props;
@@ -10,7 +11,7 @@ const Cast = (props) => {
           <div key={person.id} className="cast-item">
             <div className="pic-wrapper">
               <img
-                src={person.image ? person.image.medium : "/not-found.png"}
+                src={person.image ? person.image.medium : notFoundImg}
                 alt={person.name}
               />
             </div>

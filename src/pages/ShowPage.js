@@ -8,6 +8,7 @@ import Cast from "../components/shows/Cast";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { TextCenter } from "../components/common/TextCenter";
+import notFoundImg from "../components/common/not-found.png";
 const ShowPage = () => {
   const { showId } = useParams();
 
@@ -32,9 +33,7 @@ const ShowPage = () => {
         </BackHomeWrapper>
         <ShowIdData
           name={showIdData.name}
-          image={
-            showIdData.image ? showIdData.image.original : "/not-found.png"
-          }
+          image={showIdData.image ? showIdData.image.original : notFoundImg}
           genres={showIdData.genres}
           summary={showIdData.summary}
           rating={showIdData.rating}

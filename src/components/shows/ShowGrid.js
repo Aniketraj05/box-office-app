@@ -3,6 +3,7 @@ import ShowCard from "./ShowCard";
 import { star, unStar } from "./starred/actionTypes";
 import { useStarredShowReducer } from "./starred/useStarredShowReducer";
 import { FlexGrid } from "../common/FlexGrid";
+import notFoundImg from "../common/not-found.png";
 
 const ShowGrid = (props) => {
   const { showData } = props;
@@ -22,7 +23,7 @@ const ShowGrid = (props) => {
         <ShowCard
           id={item.show.id}
           name={item.show.name}
-          imgUrl={item.show.image ? item.show.image.medium : "/not-found.png"}
+          imgUrl={item.show.image ? item.show.image.medium : notFoundImg}
           summary={item.show.summary}
           onStarClick={onStarClick}
           isStarred={starredState.includes(item.show.id)}
